@@ -46,19 +46,26 @@ void Person_destroy(struct Person *who)
 	// checking if the who-pointer points to a valid location, otherwise quitting the program
 	assert(who != NULL);
 
-	// 
+	// releasing the memory allocated to the name element via strdup
 	free(who->name);
+	// releasing the memory allocated to the Person-structure via malloc
 	free(who);
 }
 
+// function without return-value that takes ein Person-structure as parameter
 void Person_print(struct Person *who)
 {
+	// printing the value of the name element of the Person-structure to the console
 	printf("Name: %s\n", who->name);
+	// printing the value of the age element of the Person-structure to the console
 	printf("\tAge: %d\n", who->age);
+	// printing the value of the height element of the Person-structure to the console
 	printf("\tHeight: %d\n", who->height);
+	// printing the value of the weight element of the Person-structure to the console
 	printf("\tWeight: %d\n", who->weight);	
 }
 
+// the main-function, returning an integer value, taking parameters with program call and counts them
 int main(int argc, char *argv[])
 {
 	// make two people structures
